@@ -13,11 +13,11 @@ end
 post '/posts/edit/:id' do
   @post = Post.find(params[:id])
   params[:post].each {|k,v| @post.update(k => v) if !v.empty? }
-    if (@tag = Tag.find_by(params[:tag]))
-      @post.tags = [@tag]
-    else
-      @post.tags = [Tag.create(params[:tag])]
-    end
+  if (@tag = Tag.find_by(params[:tag]))
+    @post.tags = [@tag]
+  else
+    @post.tags = [Tag.create(params[:tag])]
+  end
   puts "great success"
   erb :success
 end

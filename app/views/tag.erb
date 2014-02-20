@@ -1,5 +1,10 @@
 <div class="container">
   <h1>Posts by Tag</h1>
+  <ul>
+  <% @tag.posts.each do |post| %>
+    <a href="/posts/<%=post.id%>"><li><%= post.title %></li></a>
+    <% end %>
+  </ul>
 
 
 

@@ -1,4 +1,5 @@
 get '/tags/:id' do
-  binding.pry
-  params[:id]
+  @tag = Tag.find(params[:id])
+
+  erb :tag
 end
